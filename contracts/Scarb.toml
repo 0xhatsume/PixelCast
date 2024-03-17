@@ -1,0 +1,52 @@
+[package]
+cairo-version = "2.4.0"
+name = "pixelaw"
+version = "0.1.26"
+homepage = "https://github.com/pixelaw/core"
+
+[cairo]
+sierra-replace-ids = true
+
+[dependencies]
+dojo = { git = "https://github.com/dojoengine/dojo", tag = "v0.6.0-alpha.2" }
+
+[[target.dojo]]
+build-external-contracts = []
+
+[lib]
+
+[tool.dojo]
+initializer_class_hash = "0xbeef"
+
+[scripts]
+init_auth = "./scripts/init_auth.sh"
+slot_post_deploy = "./scripts/update_scarb.sh &&  ./scripts/init_auth.sh"
+slot_deploy = "bash ./scripts/slot_deploy.sh"
+post_deploy = "./scripts/update_scarb.sh && ./scripts/update_accounts.sh &&  ./scripts/init_auth.sh && bash ./scripts/upload_manifest.sh"
+post_deploy_mac = "./scripts/update_scarb_mac.sh && ./scripts/update_accounts.sh &&  ./scripts/init_auth.sh"
+deploy = "sozo build &&  sozo migrate --name pixelaw && ./scripts/update_scarb.sh && ./scripts/update_accounts.sh && ./scripts/init_auth.sh"
+deploy_mac = "sozo build &&  sozo migrate --name pixelaw && ./scripts/update_scarb_mac.sh && ./scripts/update_accounts.sh && ./scripts/init_auth.sh"
+spawn_pixel_1 = "./scripts/spawn_pixel_1.sh"
+put_color_1 = "./scripts/put_color_1.sh"
+spawn_rps_1 = "./scripts/spawn_rps_1.sh"
+put_rps_1 = "./scripts/put_rps_1.sh"
+simple_test = "./scripts/simple_test.sh"
+get_2 = "./scripts/get_2.sh"
+spawn_pixel_2 = "./scripts/spawn_pixel_2.sh"
+put_color_2 = "./scripts/put_color_2.sh"
+spawn_rps_2 = "./scripts/spawn_rps_2.sh"
+update_accounts = "./scripts/update_accounts.sh"
+upload_manifest = "bash ./scripts/upload_manifest.sh"
+update_scarb = "bash ./scripts/update_scarb.sh"
+
+[tool.dojo.env]
+#rpc_url = "http://localhost:5050/"
+world_address = "0x608cc3b3f4cf88e180bd3222dbf4af8afc1f0dbe93b2c30cd58f86ea6ccdbbf"
+
+# World Owner account
+account_address = "0xb3ff441a68610b30fd5e2abbf3a1548eb6ba6f3559f2862bf2dc757e5828ca"
+#account_pubkey = "0x640466ebd2ce505209d3e5c4494b4276ed8f1cde764d757eb48831961f7cdea"
+#private_key = "0x2bbf4f9fd0bbb2e60b0316c1fe0b76cf7a4d0198bd493ced9b8df2a3a24d68a"
+
+keystore_path = "dev-keystore.json"
+keystore_password = "hellopixelaw"
