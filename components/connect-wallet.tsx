@@ -14,8 +14,8 @@ import {
   RpcProvider,
   Signature,
 } from "starknet";
-import { timeValid, getAbi } from "@/utils";
-import Profile from "@/components/profile";
+import { timeValid, getAbi } from "../utils";
+import Profile from "./profile";
 
 type FarcasterData = {
   fid: number;
