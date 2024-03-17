@@ -6,6 +6,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 	//let accountAddress: string | undefined = "";
 	const body: FrameRequest = await req.json();
 	const { isValid, message } = await getFrameMessage(body);
+    isValid? console.log("isValid") : console.log("isNotValid");
+    console.log(message)
 	// if (isValid) {
 	// 	try {
 	// 		accountAddress = await getFrameAccountAddress(message, { NEYNAR_API_KEY: "NEYNAR_API_DOCS" });
@@ -18,7 +20,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="https://jade-doubtful-hippopotamus-568.mypinata.cloud/ipfs/QmYU1StXRTHJG9GsX83sB2K6VQ1gsjdnpbPgrzHViBShyx" />
     <meta property="fc:frame:button" content="directionszzz" />
-    </head></html>`);
+    </head>
+    PixeLaw for Da Wins!
+    </html>`);
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
