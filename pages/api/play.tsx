@@ -1,6 +1,12 @@
 import { BASE_URL } from "@/utils";
 import { FrameRequest, getFrameMessage } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
+import { buildFrameMetaHTML, getFrameData } from "@/frameUtils";
+
+
+const headers = {
+	"Content-Type": "text/html",
+};
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
 	//let accountAddress: string | undefined = "";
@@ -16,15 +22,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 	// 	}
 	// }
 
-	return new NextResponse(`<!DOCTYPE html><html><head>
-	<meta property="og:title" content="Frame" />
-    <meta property="og:image" content={"https://jade-doubtful-hippopotamus-568.mypinata.cloud/ipfs/QmYU1StXRTHJG9GsX83sB2K6VQ1gsjdnpbPgrzHViBShyx"} />
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://jade-doubtful-hippopotamus-568.mypinata.cloud/ipfs/QmYU1StXRTHJG9GsX83sB2K6VQ1gsjdnpbPgrzHViBShyx" />
-    <meta property="fc:frame:button:1" content="Connect Starknet Wallet" />
-    </head>
-    PixeLaw for Da Wins!
-    </html>`);
+	return new NextResponse(buildFrameMetaHTML({
+		title: "PixeLaw - pixel-based Autonomous World",
+		image: `https://jade-doubtful-hippopotamus-568.mypinata.cloud/ipfs/QmYU1StXRTHJG9GsX83sB2K6VQ1gsjdnpbPgrzHViBShyx`,
+		post_url: `${BASE_URL}/api/play`,
+		buttons: ["⬅️","⬆️","➡️"],
+	}),
+	{ headers });
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
