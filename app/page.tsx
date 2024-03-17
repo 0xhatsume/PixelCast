@@ -8,11 +8,11 @@ export async function generateMetadata(): Promise<Metadata> {
     const frameMetadata = getFrameMetadata({
         buttons: [
         {
-            label: "Connect Starknet Wallet",
+            label: "Connect Starknet Wallet 👜",
             action: "post_redirect",
         }, 
         {
-            label:"Play as Guest"
+            label:"Play as Guest 🎮"
         }],
         image: `https://jade-doubtful-hippopotamus-568.mypinata.cloud/ipfs/QmYU1StXRTHJG9GsX83sB2K6VQ1gsjdnpbPgrzHViBShyx`,
         post_url: `${BASE_URL}/api/redirect`,
