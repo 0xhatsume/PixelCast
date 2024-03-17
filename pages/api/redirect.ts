@@ -5,6 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+
   if (req.method === "POST") {
     const signedMessage = req.body as {
       untrustedData: {
@@ -20,9 +21,12 @@ export default async function handler(
         messageBytes: string;
       };
     };
+    const buttonIndex = signedMessage?.untrustedData?.buttonIndex as number;
 
-    const messageBytes = signedMessage?.trustedData?.messageBytes;
-    res.redirect(302, `${BASE_URL}/verify/${messageBytes}`);
+    if (buttonIndex === 1){
+      const messageBytes = signedMessage?.trustedData?.messageBytes;
+      res.redirect(302, `${BASE_URL}/verify/${messageBytes}`);
+    }
   } else {
     res.status(405).end(); // Method Not Allowed
   }

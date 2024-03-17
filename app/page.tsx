@@ -12,7 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
             action: "post_redirect",
         }, 
         {
-            label:"Play as Guest 🎮"
+            label:"Play as Guest 🎮",
+            action: "post_redirect",
         }],
         image: `https://jade-doubtful-hippopotamus-568.mypinata.cloud/ipfs/QmYU1StXRTHJG9GsX83sB2K6VQ1gsjdnpbPgrzHViBShyx`,
         post_url: `${BASE_URL}/api/redirect`,
