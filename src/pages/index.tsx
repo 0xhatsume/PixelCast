@@ -6,7 +6,14 @@ import { FrameMetadata, getFrameMetadata } from "@coinbase/onchainkit";
 
 export async function generateMetadata(): Promise<Metadata> {
   const frameMetadata = getFrameMetadata({
-    buttons: [`Connect Starknet Wallet`,`Guest`],
+    buttons: [
+      {
+        label: "Connect Starknet Wallet",
+        action: "post_redirect",
+      }, 
+      {
+        label:"Play as Guest"
+      }],
     image: ``,
     post_url: `${BASE_URL}/api/redirect`,
   });
