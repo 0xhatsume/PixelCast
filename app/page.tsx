@@ -38,7 +38,7 @@ export default async function Page() {
         <>
             <div>
                 <main >
-                    Henlos Bro new FrameMetadata with Page
+                    Pixels For Da Win!
                 </main>
             </div>
         </>
