@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.10.2",
     "@farcaster/hub-nodejs": "^0.10.22",
     "@farcaster/hub-web": "^0.7.3",
     "@starknet-react/chains": "^0.1.6",
